@@ -14,10 +14,7 @@ setTimeout(() => {
 
   // 👇️ removes element from DOM
   loadingScreen.style.display = 'none'
-
-  // 👇️ hides element (still takes up space on page)
-  // loadingScreen.style.visibility = 'hidden';
-}, 4800) // 👈️ time in milliseconds
+}, 100) // 👈️ time in milliseconds
 
 const background = new Sprite({
   position: {
@@ -183,7 +180,7 @@ function animate() {
   c.fillRect(0, 0, canvas.width, canvas.height)
   background.update()
   shop.update()
-  c.fillStyle = 'rgba(255, 255, 255, 0.15)'
+  c.fillStyle = 'rgba(255, 255, 255, 0)' //opacity of background
   c.fillRect(0, 0, canvas.width, canvas.height)
   player.update()
   enemy.update()
