@@ -8,6 +8,7 @@ c.fillRect(0, 0, canvas.width, canvas.height)
 
 const gravity = 0.7
 
+//loading screen
 setTimeout(() => {
   const loadingScreen = document.getElementById('loadingScreen')
 
@@ -16,7 +17,7 @@ setTimeout(() => {
 
   // 👇️ hides element (still takes up space on page)
   // loadingScreen.style.visibility = 'hidden';
-}, 2500) // 👈️ time in milliseconds
+}, 4800) // 👈️ time in milliseconds
 
 const background = new Sprite({
   position: {
@@ -325,6 +326,14 @@ window.addEventListener('keydown', (event) => {
 
 //keypress to act
 window.addEventListener('click', (event) => {
+  console.log(event.srcElement.id)
+  if (event.srcElement.id == 'startScreenImg') {
+    console.log('startScreen')
+    const startScreen = document.getElementById('startScreen')
+
+    // 👇️ removes element from DOM
+    startScreen.style.display = 'none'
+  }
   if (!player.dead) {
     console.log('hi', event.srcElement.id)
     switch (event.srcElement.id) {
