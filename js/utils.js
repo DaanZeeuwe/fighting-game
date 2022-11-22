@@ -13,14 +13,13 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 function determineWinner({ player, enemy, timerId }) {
   clearTimeout(timerId)
   document.querySelector('#displayText').style.display = 'flex'
-  if (player.health === enemy.health) {
-    document.querySelector('#displayText').innerHTML = 'Tie'
-  } else if (player.health > enemy.health) {
+  if (player.health > 0 && enemy.health == 0) {
     document.querySelector('#displayText').innerHTML = 'Access granted!'
     window.location.href = 'http://www.eventbrite.com'
   } else if (player.health < enemy.health) {
-    document.querySelector('#displayText').innerHTML = 'Player 5 Wins'
-    window.location.href = 'http://www.eventbrite.com'
+    document.querySelector('#displayText').innerHTML = 'You suck!'
+  } else {
+    document.querySelector('#displayText').innerHTML = 'Tie'
   }
 }
 

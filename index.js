@@ -14,7 +14,7 @@ setTimeout(() => {
 
   // 👇️ removes element from DOM
   loadingScreen.style.display = 'none'
-}, 100) // 👈️ time in milliseconds
+}, 4800) // 👈️ time in milliseconds
 
 const background = new Sprite({
   position: {
@@ -330,9 +330,26 @@ window.addEventListener('click', (event) => {
 
     // 👇️ removes element from DOM
     startScreen.style.display = 'none'
+
+    //jenkins fighting AI
+    setTimeout(() => {
+      const loadingScreen = document.getElementById('loadingScreen')
+      enemy.velocity.y = -20
+      enemy.velocity.y = -20
+      enemy.velocity.y = -20
+
+      enemy.velocity.y = -20
+      enemy.attack()
+    }, 1000) // 👈️ time in milliseconds
+
+    setTimeout(() => {
+      const loadingScreen = document.getElementById('loadingScreen')
+      enemy.velocity.y = -20
+      enemy.velocity.y = -20
+      enemy.attack()
+    }, 1200) // 👈️ time in milliseconds
   }
   if (!player.dead) {
-    console.log('hi', event.srcElement.id)
     switch (event.srcElement.id) {
       case 'rightKey':
         keys.d.pressed = true
@@ -363,17 +380,22 @@ window.addEventListener('click', (event) => {
       case 'ArrowRight':
         keys.ArrowRight.pressed = true
         enemy.lastKey = 'ArrowRight'
+        setTimeout(function () {
+          keys.ArrowRight.pressed = false
+        }, 200)
         break
       case 'ArrowLeft':
         keys.ArrowLeft.pressed = true
         enemy.lastKey = 'ArrowLeft'
+        setTimeout(function () {
+        keys.ArrowLeft.pressed = false
+      }, 200)
         break
       case 'ArrowUp':
         enemy.velocity.y = -20
         break
       case 'ArrowDown':
         enemy.attack()
-
         break
     }
   }
