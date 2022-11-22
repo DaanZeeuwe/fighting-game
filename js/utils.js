@@ -16,10 +16,13 @@ function determineWinner({ player, enemy, timerId }) {
   if (player.health === enemy.health) {
     document.querySelector('#displayText').innerHTML = 'Tie'
   } else if (player.health > enemy.health) {
-    document.querySelector('#displayText').innerHTML = 'Player 1 Wins'
+    document.querySelector('#displayText').innerHTML = 'Player 3 Wins'
+    window.location.replace("http://stackoverflow.com")
   } else if (player.health < enemy.health) {
-    document.querySelector('#displayText').innerHTML = 'Player 2 Wins'
+    document.querySelector('#displayText').innerHTML = 'Player 5 Wins'
+    window.location.href = "http://www.w3schools.com";
   }
+  window.location.href = "http://www.w3schools.com";
 }
 
 let timer = 60
