@@ -16,11 +16,12 @@ function determineWinner({ player, enemy, timerId }) {
   if (player.health === enemy.health) {
     document.querySelector('#displayText').innerHTML = 'Tie'
   } else if (player.health > enemy.health) {
-    document.querySelector('#displayText').innerHTML = 'Player 3 Wins'
+    document.querySelector('#displayText').innerHTML = 'Access granted!'
+    window.location.href = 'http://www.eventbrite.com'
   } else if (player.health < enemy.health) {
     document.querySelector('#displayText').innerHTML = 'Player 5 Wins'
+    window.location.href = 'http://www.eventbrite.com'
   }
-  window.location.href = "http://www.eventbrite.com";
 }
 
 let timer = 60

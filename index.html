@@ -12,7 +12,10 @@
     }
   </style>
 </head>
-<body>
+<body style="background-color: #232323">
+  <div id="loadingScreen" style="position:absolute; z-index: 999;">
+    <img src="./img/loading.gif">
+  </div>
   <!-- red container div -->
   <div style="position: relative; display: inline-block">
     <!-- smaller red container div -->
@@ -109,9 +112,66 @@
     >
       Tie
     </div>
+
     <canvas></canvas>
   </div>
-
+  <div id="buttonRow" class="btn-group"></div>
+  <button
+    id="leftKey"
+    style="
+      width: 200px;
+      height: 56px;
+      border-radius: 5px;
+      background-color: #9999;
+      text-align: center;
+      padding: 20px;
+      margin: 20px;
+    "
+  >
+    [a]
+  </button>
+  <button
+    id="jumpKey"
+    style="
+      width: 200px;
+      height: 56px;
+      border-radius: 5px;
+      background-color: #9999;
+      text-align: center;
+      padding: 20px;
+      margin: 20px;
+    "
+  >
+    [w]</button>
+    <button
+      id="fightKey"
+      style="
+        width: 200px;
+        height: 56px;
+        border-radius: 5px;
+        background-color: #9999;
+        text-align: center;
+        padding: 20px;
+        margin: 20px;
+      "
+    >
+      [space]
+    </button>
+    <button
+      id="rightKey"
+      style="
+        width: 200px;
+        height: 56px;
+        border-radius: 5px;
+        background-color: #9999;
+        text-align: center;
+        padding: 20px;
+        margin: 20px;
+      "
+    >
+      [d]
+    </button>
+  </div>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
     integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="

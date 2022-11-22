@@ -8,6 +8,16 @@ c.fillRect(0, 0, canvas.width, canvas.height)
 
 const gravity = 0.7
 
+setTimeout(() => {
+  const loadingScreen = document.getElementById('loadingScreen')
+
+  // 👇️ removes element from DOM
+  loadingScreen.style.display = 'none'
+
+  // 👇️ hides element (still takes up space on page)
+  // loadingScreen.style.visibility = 'hidden';
+}, 2500) // 👈️ time in milliseconds
+
 const background = new Sprite({
   position: {
     x: 0,
@@ -269,6 +279,7 @@ function animate() {
 
 animate()
 
+//keypress to act
 window.addEventListener('keydown', (event) => {
   if (!player.dead) {
     switch (event.key) {
@@ -289,6 +300,7 @@ window.addEventListener('keydown', (event) => {
     }
   }
 
+  /*
   if (!enemy.dead) {
     switch (event.key) {
       case 'ArrowRight':
@@ -308,6 +320,58 @@ window.addEventListener('keydown', (event) => {
         break
     }
   }
+  */
+})
+
+//keypress to act
+window.addEventListener('click', (event) => {
+  if (!player.dead) {
+    console.log('hi', event.srcElement.id)
+    switch (event.srcElement.id) {
+      case 'rightKey':
+        keys.d.pressed = true
+        player.lastKey = 'd'
+        setTimeout(function () {
+          keys.d.pressed = false
+        }, 200)
+        break
+      case 'leftKey':
+        keys.a.pressed = true
+        player.lastKey = 'a'
+        setTimeout(function () {
+          keys.a.pressed = false
+        }, 200)
+        break
+      case 'jumpKey':
+        player.velocity.y = -20
+        break
+      case 'fightKey':
+        player.attack()
+        break
+    }
+  }
+
+  /*
+  if (!enemy.dead) {
+    switch (event.key) {
+      case 'ArrowRight':
+        keys.ArrowRight.pressed = true
+        enemy.lastKey = 'ArrowRight'
+        break
+      case 'ArrowLeft':
+        keys.ArrowLeft.pressed = true
+        enemy.lastKey = 'ArrowLeft'
+        break
+      case 'ArrowUp':
+        enemy.velocity.y = -20
+        break
+      case 'ArrowDown':
+        enemy.attack()
+
+        break
+    }
+  }
+  */
 })
 
 window.addEventListener('keyup', (event) => {
@@ -319,7 +383,7 @@ window.addEventListener('keyup', (event) => {
       keys.a.pressed = false
       break
   }
-
+  /*
   // enemy keys
   switch (event.key) {
     case 'ArrowRight':
@@ -329,4 +393,5 @@ window.addEventListener('keyup', (event) => {
       keys.ArrowLeft.pressed = false
       break
   }
+  */
 })
