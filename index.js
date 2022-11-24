@@ -14,7 +14,7 @@ setTimeout(() => {
 
   // 👇️ removes element from DOM
   loadingScreen.style.display = 'none'
-}, 100) // 👈️ time in milliseconds
+}, 4800) // 👈️ time in milliseconds
 
 const background = new Sprite({
   position: {
