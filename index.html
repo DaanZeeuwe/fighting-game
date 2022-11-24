@@ -16,167 +16,172 @@
 </head>
 <body style="background-color: #000">
   <div style="width: 1024; margin: 0 auto;">
-  <div id="loadingScreen" style="position:absolute; z-index: 999;">
-    <img src="./img/loading.gif" style="width:1024px;">
-  </div>
-  <div id="startScreen" style="position:absolute; z-index: 998;">
-    <img id="startScreenImg" style="width:1024px;" src="./img/start_screen.png">
-  </div>
-  <!-- red container div -->
-  <div style="position: relative; display: inline-block">
-    <!-- smaller red container div -->
-    <div
-      style="
-        position: absolute;
-        display: flex;
-        width: 100%;
-        align-items: center;
-        padding: 20px;
-      "
-    >
-      <!-- player health -->
+    <div id="loadingScreen" class="desktopExperience" style="position:absolute; z-index: 999;">
+      <img src="./img/loading.gif" style="width:1024px;">
+    </div>
+    <div id="startScreen" class="desktopExperience" style="position:absolute; z-index: 998;">
+      <img id="startScreenImg" style="width:1024px;" src="./img/start_screen.png">
+    </div>
+    <!-- red container div -->
+    <div style="position: relative; display: inline-block" class="desktopExperience">
+      <!-- smaller red container div -->
       <div
         style="
-          position: relative;
-          width: 100%;
+          position: absolute;
           display: flex;
-          justify-content: flex-end;
-          border-top: 4px solid white;
-          border-left: 4px solid white;
-          border-bottom: 4px solid white;
+          width: 100%;
+          align-items: center;
+          padding: 20px;
         "
       >
-        <div style="background-color: red; height: 30px; width: 100%"></div>
+        <!-- player health -->
         <div
-          id="playerHealth"
           style="
-            position: absolute;
-            background: #818cf8;
-            top: 0;
-            right: 0;
-            bottom: 0;
+            position: relative;
             width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            border-top: 4px solid white;
+            border-left: 4px solid white;
+            border-bottom: 4px solid white;
           "
-        ></div>
-      </div>
+        >
+          <div style="background-color: red; height: 30px; width: 100%"></div>
+          <div
+            id="playerHealth"
+            style="
+              position: absolute;
+              background: #818cf8;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+            "
+          ></div>
+        </div>
 
-      <!-- timer -->
+        <!-- timer -->
+        <div
+          id="timer"
+          style="
+            background-color: black;
+            width: 100px;
+            height: 50px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: 4px solid white;
+          "
+        >
+          10
+        </div>
+        <!-- enemy health -->
+        <div
+          style="
+            position: relative;
+            width: 100%;
+            border-top: 4px solid white;
+            border-bottom: 4px solid white;
+            border-right: 4px solid white;
+          "
+        >
+          <div style="background-color: red; height: 30px"></div>
+          <div
+            id="enemyHealth"
+            style="
+              position: absolute;
+              background: #818cf8;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+            "
+          ></div>
+        </div>
+        <div></div>
+      </div>
       <div
-        id="timer"
+        id="displayText"
         style="
-          background-color: black;
-          width: 100px;
-          height: 50px;
-          flex-shrink: 0;
-          display: flex;
+          position: absolute;
+          color: white;
           align-items: center;
           justify-content: center;
-          color: white;
-          border: 4px solid white;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: none;
         "
       >
-        10
+        Tie
       </div>
-      <!-- enemy health -->
-      <div
-        style="
-          position: relative;
-          width: 100%;
-          border-top: 4px solid white;
-          border-bottom: 4px solid white;
-          border-right: 4px solid white;
-        "
-      >
-        <div style="background-color: red; height: 30px"></div>
-        <div
-          id="enemyHealth"
-          style="
-            position: absolute;
-            background: #818cf8;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-          "
-        ></div>
-      </div>
-      <div></div>
-    </div>
-    <div
-      id="displayText"
-      style="
-        position: absolute;
-        color: white;
-        align-items: center;
-        justify-content: center;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: none;
-      "
-    >
-      Tie
-    </div>
 
-    <canvas></canvas>
-  </div>
-  <div id="buttonRow" class="btn-group"></div>
-  <button
-    id="leftKey"
-    style="
-      width: 200px;
-      height: 56px;
-      border-radius: 5px;
-      background-color: #9999;
-      text-align: center;
-      padding: 20px;
-      margin: 20px;
-    "
-  >
-    [a]
-  </button>
-  <button
-    id="jumpKey"
-    style="
-      width: 200px;
-      height: 56px;
-      border-radius: 5px;
-      background-color: #9999;
-      text-align: center;
-      padding: 20px;
-      margin: 20px;
-    "
-  >
-    [w]</button>
-    <button
-      id="fightKey"
-      style="
-        width: 200px;
-        height: 56px;
-        border-radius: 5px;
-        background-color: #9999;
-        text-align: center;
-        padding: 20px;
-        margin: 20px;
-      "
-    >
-      [space]
-    </button>
-    <button
-      id="rightKey"
-      style="
-        width: 200px;
-        height: 56px;
-        border-radius: 5px;
-        background-color: #9999;
-        text-align: center;
-        padding: 20px;
-        margin: 20px;
-      "
-    >
-      [d]
-    </button>
+      <canvas></canvas>
+    </div>
+    <div id="buttonRow" class="btn-group desktopExperience"></div>
+      <button
+        id="leftKey"
+        class="desktopExperience"
+        style="
+          width: 200px;
+          height: 56px;
+          border-radius: 5px;
+          background-color: #9999;
+          text-align: center;
+          padding: 20px;
+          margin: 20px;
+        "
+      >
+        [a]
+      </button>
+      <button
+        id="jumpKey" class="desktopExperience"
+        style="
+          width: 200px;
+          height: 56px;
+          border-radius: 5px;
+          background-color: #9999;
+          text-align: center;
+          padding: 20px;
+          margin: 20px;
+        "
+      >
+        [w]
+      </button>
+      <button
+        id="fightKey"
+        class="desktopExperience"
+        style="
+          width: 200px;
+          height: 56px;
+          border-radius: 5px;
+          background-color: #9999;
+          text-align: center;
+          padding: 20px;
+          margin: 20px;
+        "
+      >
+        [space]
+      </button>
+      <button
+        id="rightKey"
+        class="desktopExperience"
+        style="
+          width: 200px;
+          height: 56px;
+          border-radius: 5px;
+          background-color: #9999;
+          text-align: center;
+          padding: 20px;
+          margin: 20px;
+        "
+      >
+        [d]
+      </button>
+      hi
   </div>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
