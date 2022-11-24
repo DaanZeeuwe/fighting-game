@@ -13,9 +13,9 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 function determineWinner({ player, enemy, timerId }) {
   clearTimeout(timerId)
   document.querySelector('#displayText').style.display = 'flex'
-  if (player.health > 0 && enemy.health == 0) {
+  if (player.health > 0 && enemy.health <= 0) {
     document.querySelector('#displayText').innerHTML = 'Access granted!'
-    window.location.href = 'http://www.eventbrite.com'
+    window.location.href = 'https://www.uptime.build/isdevopsdead'
   } else if (player.health < enemy.health) {
     document.querySelector('#displayText').innerHTML = 'You suck!'
   } else {
